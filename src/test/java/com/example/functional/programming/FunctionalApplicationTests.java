@@ -1,7 +1,7 @@
 package com.example.functional.programming;
 
-import com.example.functional.programming.model.Person;
 import com.example.functional.programming.intf.PersonFunctionalInterface;
+import com.example.functional.programming.model.Person;
 import com.example.functional.programming.model.SimpleStream;
 import org.junit.jupiter.api.Test;
 
@@ -10,6 +10,19 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 class FunctionalApplicationTests {
+
+    @Test
+    void declareAnonymousClass() {
+        PersonFunctionalInterface anonClassExample = new PersonFunctionalInterface() {
+            @Override
+            public Person createPerson(String name) {
+                return new Person(name);
+            }
+        };
+
+
+        assert (anonClassExample.createPerson("Hello, World").getName().equals("Hello, World"));
+    }
 
 
     @Test
